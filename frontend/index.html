@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#10131c">
+    <title>Laptop SH</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <div>
+                <p class="eyebrow">REMOTE CONTROL</p>
+                <h1>Laptop SH</h1>
+            </div>
+            <div class="status" id="connection">
+                <span class="dot"></span>
+                <span>Connecting</span>
+            </div>
+        </header>
+
+        <section class="device-card">
+            <div class="device-icon">💻</div>
+            <div>
+                <p class="muted">Perangkat</p>
+                <h2 id="device">Memuat...</h2>
+                <p class="muted" id="os">Windows</p>
+            </div>
+        </section>
+
+        <section class="info-card">
+            <div>
+                <p class="muted">Baterai</p>
+                <h2 id="battery">--%</h2>
+            </div>
+            <div class="battery-icon">🔋</div>
+            <p id="charging" class="muted">Memeriksa...</p>
+        </section>
+
+        <section class="controls">
+            <h3>Kontrol Laptop</h3>
+
+            <button class="action sleep" onclick="runAction('sleep')">
+                🌙 Sleep
+            </button>
+
+            <button class="action lock" onclick="runAction('lock')">
+                🔒 Lock
+            </button>
+
+            <button class="action restart" onclick="runAction('restart')">
+                🔄 Restart
+            </button>
+
+            <button class="action shutdown" onclick="runAction('shutdown')">
+                ⏻ Shutdown
+            </button>
+        </section>
+
+        <p class="footer" id="updated">Menunggu data...</p>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
