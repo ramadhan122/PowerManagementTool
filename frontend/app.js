@@ -95,6 +95,7 @@ async function loadStatus() {
 
 async function runAction(action) {
     const labels = {
+        enter: "Enter",
         sleep: "Sleep",
         lock: "Lock",
         restart: "Restart",

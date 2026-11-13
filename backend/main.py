@@ -1,4 +1,4 @@
-
+import time
 import ctypes
 import ctypes.wintypes
 import os
@@ -124,12 +124,36 @@ def laptop_status(x_laptop_token: str | None = Header(default=None)):
     }
 
 
+
 @app.post("/api/action/{action}")
 def laptop_action(
     action: str,
     x_laptop_token: str | None = Header(default=None)
 ):
     verify_token(x_laptop_token)
+
+    # Kirim tombol Enter ke Windows
+    if action == "enter":
+        try:
+            user32 = ctypes.windll.user32
+
+            # Tekan Enter
+            user32.keybd_event(0x0D, 0, 0, 0)
+            time.sleep(0.1)
+
+            # Lepaskan Enter
+            user32.keybd_event(0x0D, 0, 0x0002, 0)
+
+            return {
+                "success": True,
+                "message": "Enter key event sent"
+            }
+
+        except Exception as error:
+            raise HTTPException(
+                status_code=500,
+                detail=str(error)
+            )
 
     commands = {
         "shutdown": ["shutdown", "/s", "/t", "0"],
