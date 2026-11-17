@@ -132,3 +132,12 @@ h2 {
     text-align: center;
     margin-top: 20px;
 }
+
+.wake {
+    background: #263b35;
+    border-color: #39a77a;
+}
+
+.wake:active {
+    background: #315548;
+}

@@ -11,13 +11,25 @@ from pathlib import Path
 from fastapi import FastAPI, Header, HTTPException
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
-
+from fastapi.middleware.cors import CORSMiddleware
 
 # =========================
 # CONFIGURATION
 # =========================
 
 app = FastAPI(title="Laptop SH API")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost",
+        "https://localhost",
+        "capacitor://localhost",
+        "ionic://localhost",
+    ],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # PIN diatur melalui environment variable Windows.
 ACCESS_PIN = os.getenv("LAPTOP_SH_PIN")
